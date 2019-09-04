@@ -18,15 +18,18 @@ end
 return emo_hash
 end
 
-
-
 def get_japanese_emoticon(emo_lib, emoticon)
 emo_lib = load_library('./lib/emoticons.yml')
 
-#jap_emoticon = emo_lib[get_emoticon]
-binding.pry  
-
+  if emo_lib[:get_emoticon]["#{emoticon}"]
+    emo_lib[:get_emoticon]["#{emoticon}"]
+  else 
+    "Sorry, that emoticon was not found"
+  end 
 end
+
+#binding.pry
+
 
 def get_english_meaning
   # code goes here
