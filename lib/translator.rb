@@ -1,3 +1,4 @@
+
 # require modules here
 require "pry"
 require "yaml"
@@ -28,9 +29,13 @@ emo_lib = load_library('./lib/emoticons.yml')
   end 
 end
 
-#binding.pry
 
+def get_english_meaning(emo_lib, emoticon)
+emo_lib = load_library('./lib/emoticons.yml')
 
-def get_english_meaning
-  # code goes here
+  if emo_lib[:get_meaning]["#{emoticon}"]
+    emo_lib[:get_meaning]["#{emoticon}"]
+  else 
+    "Sorry, that emoticon was not found"
+  end 
 end
